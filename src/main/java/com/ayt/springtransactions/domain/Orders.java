@@ -29,8 +29,4 @@ public class Orders {
     @Column(name = "order_total")
     private double orderTotal;
 
-    @JoinColumn(name = "customer_id")
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    private Customer customer;
-
 }

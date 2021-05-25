@@ -30,13 +30,6 @@ public class Customer {
     @Column (name = "age")
     private int age;
 
-    @OneToMany(
-            mappedBy = "customer",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Orders> OrderList;
-
 
 
 
