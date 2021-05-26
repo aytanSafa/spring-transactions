@@ -25,6 +25,7 @@ public class CustomerOrdersServiceImpl implements CustomerOrdersService {
 
 
     @Override
+    @Transactional
     public void saveCustomerAndOrder(CustomerOrdersDto customerOrdersDto) {
 
         customerService.saveCustomer(customerOrdersDto.getCustomer());
@@ -34,6 +35,7 @@ public class CustomerOrdersServiceImpl implements CustomerOrdersService {
     }
 
     @Override
+    @Transactional
     public void deleteCustomerAndOrder(Long customerId, Long ordersId) {
 
         customerService.deleteCustomer(customerId);
