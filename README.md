@@ -38,3 +38,21 @@ http://localhost:8080/api/saveCustomerOrders
     }
 }
 ```
+
+Second Request for Exception:
+```
+{
+    "customer":{
+        "id":null,
+        "name":"Lebron",
+        "surname":"James",
+        "age":"25"
+    },
+    "orders":{
+        "id":null,
+        "orderDate":"26-08-2020",
+        "orderTotal":51.2
+    }
+}
+```
+
