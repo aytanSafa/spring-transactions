@@ -1,12 +1,11 @@
 package com.ayt.springtransactions.service;
 
-import com.ayt.springtransactions.domain.Customer;
-import com.ayt.springtransactions.domain.Orders;
-import org.springframework.stereotype.Service;
 
-@Service
+import com.ayt.springtransactions.dto.CustomerOrdersDto;
+
+
 public interface CustomerOrdersService {
 
-        void saveCustomerAndOrder(Customer customer, Orders orders);
-        void deleteCustomerAndOrder(Customer customer,Orders orders);
+        void saveCustomerAndOrder(CustomerOrdersDto customerOrdersDto);
+        void deleteCustomerAndOrder(Long customerId,Long ordersId);
 }

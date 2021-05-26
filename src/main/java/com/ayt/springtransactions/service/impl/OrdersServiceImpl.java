@@ -4,7 +4,9 @@ import com.ayt.springtransactions.domain.Orders;
 import com.ayt.springtransactions.repository.OrdersRepository;
 import com.ayt.springtransactions.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OrdersServiceImpl  implements OrdersService {
 
     private final OrdersRepository ordersRepository;
@@ -17,8 +19,9 @@ public class OrdersServiceImpl  implements OrdersService {
     @Override
     public void saveOrders(Orders orders) {
         if(ordersRepository.findByOrderDate(orders.getOrderDate()) != null){
-            throw new RuntimeException("You can give an order in a day");
+            throw new RuntimeException("Daily order limit is reached");
         }
+        ordersRepository.save(orders);
         }
 
     @Override
