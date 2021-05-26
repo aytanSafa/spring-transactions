@@ -39,7 +39,7 @@ http://localhost:8080/api/saveCustomerOrders
 }
 ```
 
-Second Request for Exception:
+Second Request for Orders Service Exception:
 ```
 {
     "customer":{
