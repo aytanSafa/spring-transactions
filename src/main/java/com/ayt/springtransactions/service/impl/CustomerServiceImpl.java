@@ -5,6 +5,8 @@ import com.ayt.springtransactions.repository.CustomerRepository;
 import com.ayt.springtransactions.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -18,6 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void saveCustomer(Customer customer) {
 
         if(customerRepository.findById(customer.getId() ) == null){

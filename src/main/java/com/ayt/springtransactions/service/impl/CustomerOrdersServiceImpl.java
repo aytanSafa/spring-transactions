@@ -1,15 +1,15 @@
 package com.ayt.springtransactions.service.impl;
 
-import com.ayt.springtransactions.domain.Customer;
-import com.ayt.springtransactions.domain.Orders;
+
 import com.ayt.springtransactions.dto.CustomerOrdersDto;
 import com.ayt.springtransactions.service.CustomerOrdersService;
 import com.ayt.springtransactions.service.CustomerService;
 import com.ayt.springtransactions.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 @Service
 public class CustomerOrdersServiceImpl implements CustomerOrdersService {
@@ -25,6 +25,7 @@ public class CustomerOrdersServiceImpl implements CustomerOrdersService {
 
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void saveCustomerAndOrder(CustomerOrdersDto customerOrdersDto) {
 
         customerService.saveCustomer(customerOrdersDto.getCustomer());
